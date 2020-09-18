@@ -11,16 +11,16 @@ public class ComprasProducto {
 
     private Integer cantidad;
     private Double total;
-    private String estado;
+    private Boolean estado;
 
     @ManyToOne
+    @MapsId("idCompra")
     @JoinColumn(name="id_compra", insertable = false, updatable = false)
     private Compra compra;
 
     @ManyToOne
     @JoinColumn(name = "id_producto", insertable = false, updatable = false)
     private Producto producto;
-
 
     public ComprasProductoPK getId() {
         return id;
@@ -46,11 +46,11 @@ public class ComprasProducto {
         this.total = total;
     }
 
-    public String getEstado() {
+    public Boolean getEstado() {
         return estado;
     }
 
-    public void setEstado(String estado) {
+    public void setEstado(Boolean estado) {
         this.estado = estado;
     }
 
